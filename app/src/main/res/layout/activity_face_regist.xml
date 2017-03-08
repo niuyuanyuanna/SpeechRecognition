@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_face_regist"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.liuyuan.nyy.regist.FaceRegist">
+    <!--  标题栏 -->
+    <RelativeLayout
+        android:id="@+id/vocal_rllyt_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/small_title_height"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/vocal_txt_title"
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_height="@dimen/small_title_text_height"
+            android:gravity="center"
+            android:textSize="@dimen/title_text_size"
+            android:text="人脸验证"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="236dp"
+        android:layout_height="233dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/img_bg"
+            android:layout_width="236dp"
+            android:layout_height="233dp"
+            android:background="@drawable/layout_backgroud"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true"
+                >
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="215dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/img_ifr"
+                    android:layout_width="222dp"
+                    android:layout_height="215dp"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignBottom="@id/img_bg"
+            android:layout_alignRight="@id/img_bg"
+            >
+
+            <Button
+                android:id="@+id/btn_pick"
+                android:layout_width="117dp"
+                android:layout_height="56dp"
+                android:text="选图" />
+
+            <Button
+                android:id="@+id/btn_camera"
+                android:layout_width="117.5dp"
+                android:layout_height="56dp"
+                android:text="拍照" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal|center"
+        android:orientation="horizontal"  >
+
+        <ImageView
+            android:id="@+id/vocal_txt_tag_uname"
+            android:layout_width="18dp"
+            android:layout_height="19dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <TextView
+            android:id="@+id/txt_uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp">
+        </TextView>
+
+    </LinearLayout>
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:weightSum="3">
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/btnFaceVertify"
+         android:layout_weight="1"
+         android:text="验证"/>
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/btnFaceEnroll"
+         android:text="注册"
+         android:layout_weight="1"/>
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/btnFaceDelete"
+         android:text="删除"
+         android:layout_weight="1"/>
+
+ </LinearLayout>
+
+
+</LinearLayout>

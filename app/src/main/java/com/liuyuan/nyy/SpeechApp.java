@@ -3,8 +3,15 @@ package com.liuyuan.nyy;
 import android.app.Application;
 
 import com.iflytek.cloud.SpeechUtility;
+import com.liuyuan.nyy.entity.GroupHisList;
+import com.liuyuan.nyy.entity.User;
+
 
 public class SpeechApp extends Application {
+	public static String mAuth_id;
+	private static User mUser;
+	public static final String HIS_FILE_NAME ="HistoryFile";
+	private static GroupHisList mHisList ;
 
 	@Override
 	public void onCreate() {
@@ -21,6 +28,27 @@ public class SpeechApp extends Application {
 		// 以下语句用于设置日志开关（默认开启），设置成false时关闭语音云SDK日志打印
 		// Setting.setShowLog(false);
 		super.onCreate();
+	}
+
+	public static User getHostUser() {
+		if (null == mUser) {
+			mUser = new User();
+		}
+		return mUser;
+	}
+	public static void setHostUser(User user) {
+		mUser = user;
+	}
+
+	public static GroupHisList getmHisList() {
+		if (null == mHisList) {
+			mHisList = new GroupHisList();
+		}
+		return mHisList;
+	}
+
+	public static void setmHisList(GroupHisList mHisList) {
+		SpeechApp.mHisList = mHisList;
 	}
 	
 }

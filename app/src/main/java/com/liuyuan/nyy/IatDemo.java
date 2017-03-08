@@ -6,30 +6,22 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.InitListener;
-import com.iflytek.cloud.LexiconListener;
 import com.iflytek.cloud.RecognizerListener;
 import com.iflytek.cloud.RecognizerResult;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechRecognizer;
-import com.iflytek.cloud.SpeechUtility;
 import com.iflytek.cloud.ui.RecognizerDialog;
 import com.iflytek.cloud.ui.RecognizerDialogListener;
-import com.iflytek.cloud.util.ContactManager;
 import com.iflytek.sunflower.FlowerCollector;
 import com.liuyuan.nyy.settings.IatSettings;
-import com.liuyuan.nyy.util.ApkInstaller;
-import com.liuyuan.nyy.util.FucUtil;
 import com.liuyuan.nyy.util.JsonParser;
 
 import org.json.JSONException;
@@ -53,8 +45,7 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
     private SharedPreferences mSharedPreferences;
     // 引擎类型
     private String mEngineType = SpeechConstant.TYPE_CLOUD;
-    // 语记安装助手类
-//    ApkInstaller mInstaller;
+
 
     int ret = 0; // 函数调用返回值
 
@@ -62,9 +53,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iat_demo);
-//        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-//        SpeechUtility. createUtility( this, SpeechConstant. APPID + getString(R.string.app_id) );
 
         initLayout();
         // 初始化识别无UI识别对象
@@ -79,7 +67,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
                 Activity.MODE_PRIVATE);
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
         mResultText = ((EditText) findViewById(R.id.iat_text));
-//        mInstaller = new ApkInstaller(IatDemo.this);
     }
 
 
@@ -88,61 +75,9 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
      */
     private void initLayout() {
         findViewById(R.id.iat_recognize).setOnClickListener(IatDemo.this);
-//        findViewById(R.id.iat_recognize_stream).setOnClickListener(IatDemo.this);
-//        findViewById(R.id.iat_upload_contacts).setOnClickListener(IatDemo.this);
-//        findViewById(R.id.iat_upload_userwords).setOnClickListener(IatDemo.this);
         findViewById(R.id.iat_stop).setOnClickListener(IatDemo.this);
         findViewById(R.id.iat_cancel).setOnClickListener(IatDemo.this);
         findViewById(R.id.image_iat_set).setOnClickListener(IatDemo.this);
-//        // 选择云端or本地
-//        RadioGroup group = (RadioGroup) findViewById(R.id.radioGroup);
-//        group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//
-//            @Override
-//            public void onCheckedChanged(RadioGroup group, int checkedId) {
-//                switch (checkedId) {
-//                    case R.id.iatRadioCloud:
-//                        mEngineType = SpeechConstant.TYPE_CLOUD;
-//                        findViewById(R.id.iat_upload_contacts).setEnabled(true);
-//                        findViewById(R.id.iat_upload_userwords).setEnabled(true);
-//                        break;
-//                    case R.id.iatRadioLocal:
-//                        mEngineType = SpeechConstant.TYPE_LOCAL;
-//                        findViewById(R.id.iat_upload_contacts).setEnabled(false);
-//                        findViewById(R.id.iat_upload_userwords).setEnabled(false);
-//                        /**
-//                         * 选择本地听写 判断是否安装语记,未安装则跳转到提示安装页面
-//                         */
-//                        if (!SpeechUtility.getUtility().checkServiceInstalled()) {
-//                            mInstaller.install();
-//                        } else {
-//                            String result = FucUtil.checkLocalResource();
-//                            if (!TextUtils.isEmpty(result)) {
-//                                showTip(result);
-//                            }
-//                        }
-//                        break;
-//                    case R.id.iatRadioMix:
-//                        mEngineType = SpeechConstant.TYPE_MIX;
-//                        findViewById(R.id.iat_upload_contacts).setEnabled(false);
-//                        findViewById(R.id.iat_upload_userwords).setEnabled(false);
-//                        /**
-//                         * 选择本地听写 判断是否安装语记,未安装则跳转到提示安装页面
-//                         */
-//                        if (!SpeechUtility.getUtility().checkServiceInstalled()) {
-//                            mInstaller.install();
-//                        } else {
-//                            String result = FucUtil.checkLocalResource();
-//                            if (!TextUtils.isEmpty(result)) {
-//                                showTip(result);
-//                            }
-//                        }
-//                        break;
-//                    default:
-//                        break;
-//                }
-//            }
-//        });
     }
 
 
@@ -181,37 +116,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
                     }
                 }
                 break;
-            // 音频流识别
-//            case R.id.iat_recognize_stream:
-//                mResultText.setText(null);// 清空显示内容
-//                mIatResults.clear();
-//                // 设置参数
-//                setParam();
-//                // 设置音频来源为外部文件
-//                mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-1");
-//                // 也可以像以下这样直接设置音频文件路径识别（要求设置文件在sdcard上的全路径）：
-//                // mIat.setParameter(SpeechConstant.AUDIO_SOURCE, "-2");
-//                // mIat.setParameter(SpeechConstant.ASR_SOURCE_PATH, "sdcard/XXX/XXX.pcm");
-//                ret = mIat.startListening(mRecognizerListener);
-//                if (ret != ErrorCode.SUCCESS) {
-//                    showTip("识别失败,错误码：" + ret);
-//                } else {
-//                    byte[] audioData = FucUtil.readAudioFile(IatDemo.this, "iattest.wav");
-//
-//                    if (null != audioData) {
-//                        showTip(getString(R.string.text_begin_recognizer));
-//                        // 一次（也可以分多次）写入音频文件数据，数据格式必须是采样率为8KHz或16KHz（本地识别只支持16K采样率，云端都支持），位长16bit，单声道的wav或者pcm
-//                        // 写入8KHz采样的音频时，必须先调用setParameter(SpeechConstant.SAMPLE_RATE, "8000")设置正确的采样率
-//                        // 注：当音频过长，静音部分时长超过VAD_EOS将导致静音后面部分不能识别。
-//                        // 音频切分方法：FucUtil.splitBuffer(byte[] buffer,int length,int spsize);
-//                        mIat.writeAudio(audioData, 0, audioData.length);
-//                        mIat.stopListening();
-//                    } else {
-//                        mIat.cancel();
-//                        showTip("读取音频流失败");
-//                    }
-//                }
-//                break;
             // 停止听写
             case R.id.iat_stop:
                 mIat.stopListening();
@@ -222,25 +126,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
                 mIat.cancel();
                 showTip("取消听写");
                 break;
-//            // 上传联系人
-//            case R.id.iat_upload_contacts:
-//                showTip(getString(R.string.text_upload_contacts));
-//                ContactManager mgr = ContactManager.createManager(IatDemo.this,
-//                        mContactListener);
-//                mgr.asyncQueryAllContactsName();
-//                break;
-//            // 上传用户词表
-//            case R.id.iat_upload_userwords:
-//                showTip(getString(R.string.text_upload_userwords));
-//                String contents = FucUtil.readFile(IatDemo.this, "userwords", "utf-8");
-//                mResultText.setText(contents);
-//                // 指定引擎类型
-//                mIat.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
-//                mIat.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
-//                ret = mIat.updateLexicon("userword", contents, mLexiconListener);
-//                if (ret != ErrorCode.SUCCESS)
-//                    showTip("上传热词失败,错误码：" + ret);
-//                break;
             default:
                 break;
         }
@@ -261,20 +146,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
         }
     };
 
-//    /**
-//     * 上传联系人/词表监听器。
-//     */
-//    private LexiconListener mLexiconListener = new LexiconListener() {
-//
-//        @Override
-//        public void onLexiconUpdated(String lexiconId, SpeechError error) {
-//            if (error != null) {
-//                showTip(error.toString());
-//            } else {
-//                showTip(getString(R.string.text_upload_success));
-//            }
-//        }
-//    };
 
     /**
      * 听写监听器。
@@ -367,32 +238,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
         }
 
     };
-//    /**
-//     * 获取联系人监听器。
-//     */
-//    private ContactManager.ContactListener mContactListener = new ContactManager.ContactListener() {
-//
-//        @Override
-//        public void onContactQueryFinish(final String contactInfos, boolean changeFlag) {
-//            // 注：实际应用中除第一次上传之外，之后应该通过changeFlag判断是否需要上传，否则会造成不必要的流量.
-//            // 每当联系人发生变化，该接口都将会被回调，可通过ContactManager.destroy()销毁对象，解除回调。
-//            // if(changeFlag) {
-//            // 指定引擎类型
-//            runOnUiThread(new Runnable() {
-//                public void run() {
-//                    mResultText.setText(contactInfos);
-//                }
-//            });
-//
-//            mIat.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD);
-//            mIat.setParameter(SpeechConstant.TEXT_ENCODING, "utf-8");
-//            ret = mIat.updateLexicon("contact", contactInfos, mLexiconListener);
-//            if (ret != ErrorCode.SUCCESS) {
-//                showTip("上传联系人失败：" + ret);
-//            }
-//        }
-//    };
-
 
     private void showTip(final String str) {
         mToast.setText(str);

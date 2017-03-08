@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.liuyuan.nyy.GroupChooseAvtivity"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:id="@+id/group_create_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp">
+
+        <TextView
+            android:id="@+id/txt_group_create"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="选择组Id"
+            android:textSize="16sp" />
+
+        <View
+            android:id="@+id/line_create"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_below="@id/txt_group_create"
+            android:layout_margin="10dp"
+            android:background="#ff26a8" />
+
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/et_group_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入组Id"/>
+    <ListView
+        android:id="@+id/lv_group_id"
+        android:layout_width="wrap_content"
+        android:layout_height="59dp"
+        android:cacheColorHint="#00000000"
+        android:fadingEdge="none"
+        android:listSelector="#00000000"
+        android:scrollbars="none"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:layout_weight="0.59">
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_start_verify"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:text="开始验证"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+</LinearLayout>

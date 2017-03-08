@@ -16,7 +16,7 @@ import com.iflytek.cloud.InitListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.SpeechSynthesizer;
-import com.iflytek.cloud.SpeechUtility;
+
 import com.iflytek.cloud.SynthesizerListener;
 import com.iflytek.sunflower.FlowerCollector;
 import com.liuyuan.nyy.settings.TtsSettings;
@@ -26,12 +26,8 @@ public class TtsDemo extends AppCompatActivity implements View.OnClickListener {
     private static String TAG = TtsDemo.class.getSimpleName();
     private SpeechSynthesizer mTts;
 
-
     // 默认发音人
     private String voicer = "xiaoyan";
-
-    private String[] mCloudVoicersEntries;
-    private String[] mCloudVoicersValue;
 
     // 缓冲进度
     private int mPercentForBuffering = 0;
@@ -39,22 +35,17 @@ public class TtsDemo extends AppCompatActivity implements View.OnClickListener {
     private int mPercentForPlaying = 0;
 
     private Toast mToast;
-//    private SharedPreferences mSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tts_demo);
-//        SpeechUtility.createUtility(TtsDemo.this, "appid=" + getString(R.string.app_id));
 
         initLayout();
         // 初始化合成对象
         mTts = SpeechSynthesizer.createSynthesizer(TtsDemo.this, mTtsInitListener);
 
         mToast = Toast.makeText(this, "", Toast.LENGTH_SHORT);
-
-
-
     }
 
     private void initLayout() {
@@ -74,7 +65,7 @@ public class TtsDemo extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.tts_play:
                 FlowerCollector.onEvent(TtsDemo.this, "tts_play");
-                String text = ((EditText) findViewById(R.id.tts_text)).getText().toString();
+                String text = tts_text.getText().toString();
                 setParam();
                 mTts.startSpeaking(text,mTtsListener);
                 int code = mTts.startSpeaking(text, mTtsListener);
@@ -87,7 +78,6 @@ public class TtsDemo extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-//    private int selectedNum = 0;
     /**
      * 初始化监听。
      */

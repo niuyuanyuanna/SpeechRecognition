@@ -19,20 +19,21 @@
         android:id="@+id/btnIat" />
 
     <Button
-        android:text="声纹识别"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnIsv" />
-
-    <Button
-        android:text="人脸识别"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnFace" />
-
-    <Button
         android:text="语音合成"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnTts" />
+
+    <Button
+        android:text="用户登录"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLogin" />
+
+    <Button
+        android:text="混合识别"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnMixVerify" />
+
 </LinearLayout>

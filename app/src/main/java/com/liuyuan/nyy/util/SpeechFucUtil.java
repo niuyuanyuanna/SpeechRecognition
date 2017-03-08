@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * 功能性函数扩展类
  */
-public class FucUtil {
+public class SpeechFucUtil {
 	/**
 	 * 读取asset目录下文件。
 	 * @return content
