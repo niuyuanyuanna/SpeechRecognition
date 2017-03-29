@@ -1,19 +1,15 @@
 <resources>
     <string name="app_name">语音人脸识别</string>
     <string name="app_id">586b4498</string>
-    <string name="example_explain">本示例为讯飞语音Android平台开发者提供语音听写、语法识别、语义理解和语音合成等代码样例，旨在让用户能够依据该示例快速开发出基于语音接口的应用程序。</string>
-    <string name="text_tts_source">您好，请说指令</string>
+    <string name="say_command_word">您好，请说指令</string>
+    <string name="wrong_command">指令错误</string>
+    <string name="right_command">指令正确</string>
     <string name="text_tts_source_en">iFLYTEK is a national key software enterprise dedicated to the research of intelligent speech and language technologies, development of software and chip products, provision of speech information services, and integration of E-government systems. The intelligent speech technology of iFLYTEK, the core technology of the company, represents the top level in the world.</string>
     <string name="text_isr_abnf_hint">\t上传内容为：\n\t#ABNF 1.0 gb2312;\n\tlanguage zh-CN;\n\tmode voice;\n\troot $main;\n\t$main = $place1 到$place2 ;\n\t$place1 = 北京 | 武汉 | 南京 | 天津 | 东京;\n\t$place2 = 上海 | 合肥;</string>
     <string name="text_understand_hint">\t您可以说：\n\t今天的天气怎么样?\n\t北京到上海的火车?\n\t有什么好吃的?\n\t上海外滩有哪些酒店?\n\n\t更多语义请登录：\n\thttp://osp.voicecloud.cn/ \n\t配置您的专属语义吧!</string>
+
     <!-- 听写 -->
     <string name="text_begin">请开始说话…</string>
-    <string name="text_begin_recognizer">开始音频流识别</string>
-    <string name="text_upload_contacts">上传联系人</string>
-    <string name="text_upload_userwords">上传用户词表</string>
-    <string name="text_upload_success">上传成功</string>
-    <string name="text_userword_empty">词表下载失败或内容为空</string>
-    <string name="text_download_success">下载成功</string>
     <string name="pref_key_iat_show">iat_show</string>
     <string name="pref_title_iat_show">显示听写界面</string>
     <string name="pref_title_iat_dwa">结果动态修正</string>
@@ -159,7 +155,7 @@
     <string name="hint_empty_uname">请输入用户名</string>
     <!--声纹注册页面-->
     <string name="vocal_register_press_hint">请按住麦克风说话</string>
-    <string name="vocal_register_listening_hint">倾听中，读完后请松开</string>
+    <string name="vocal_register_listening_hint">倾听中...</string>
     <string name="vocal_register_mismatch_hint">您读的数字不一致，请重读</string>
     <string name="vocal_register_failure_hint">声纹注册失败，请点击话筒重试</string>
     <string name="vocal_register_download_fail_hint">声纹密码获取失败：</string>
@@ -169,10 +165,12 @@
     <string name="vocal_register_error_hint">声纹注册出错：</string>
     <!-- 混合验证页面 -->
     <string name="login_txt_title">人脸声纹验证</string>
-    <string name="login_operation_hint">请对准面部，读出下方数字</string>
+    <string name="login_operation_hint">请对准面部，读出数字</string>
     <string name="login_hint_rechallenge">点击快门，重新开始验证</string>
-    <string name="login_failure_hint">混合验证失败</string>
-    <string name="login_success_hint">混合验证成功</string>
+    <string name="login_vocal_failure_hint">声纹验证失败</string>
+    <string name="login_vocal_success_hint">声纹验证成功</string>
+    <string name="login_face_failure_hint">人脸验证失败</string>
+    <string name="login_face_success_hint">人脸验证成功</string>
     <string name="login_hint_verifying">正在验证中，请稍候再试</string>
     <string name="login_hint_engine_error">声纹验证失败：声纹引擎错误</string>
     <string name="login_hint_read_different">声纹验证失败：您所读的数字不一致</string>
@@ -181,4 +179,20 @@
     <!--选择组页面-->
     <string name="groupid_err">组ID输入有误</string>
     <string name="groupid_null">组ID不能为空</string>
+    <string name="result">识别成功</string>
+
+    <!--输入密码页面-->
+    <string name="set_blur_radius_title">请输入密码</string>
+    <string name="set_left_button">返回</string>
+    <string name="set_right_button">清除</string>
+    <string name="password_correct">密码正确</string>
+    <string name="password_incorrect">密码错误</string>
+    <string name="click_to_show">点击打开界面</string>
+    <string name="wrong_time_exceed_three">错误超过三次</string>
+
+    <string name="operations">Operations</string>
+    <string name="set_downsample_factor_title">Set Downsample Factor</string>
+    <string name="set_overlay_color">Set Overlay Color</string>
+
+    <string name="ok">OK</string>
 </resources>

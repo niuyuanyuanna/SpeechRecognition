@@ -20,6 +20,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.liuyuan.nyy.R;
+import com.liuyuan.nyy.SpeechApp;
 
 import java.util.ArrayList;
 
@@ -95,7 +96,7 @@ public class DropEditText extends FrameLayout implements View.OnClickListener, O
 		mPopView.setAdapter(adapter);
 
 		mPopup = new PopupWindow(mPopView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		mPopup.setBackgroundDrawable(new ColorDrawable(color.transparent));
+		mPopup.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.dropEditText_background)));
 		mPopup.setFocusable(true); // 让popwin获取焦点
 	}
 	
@@ -155,6 +156,8 @@ public class DropEditText extends FrameLayout implements View.OnClickListener, O
 //			tv.setTextColor(getResources().getColor(R.color.edit_text_color_bright_bg));
 			tv.setTextSize(20);
 			tv.setText(arr.get(position));
+			//将组名和ID存入SpeechApp
+			SpeechApp.setGroup_name(arr.get(position));
 			return tv;
 		}
 	}

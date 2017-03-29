@@ -31,11 +31,10 @@ public class HintPopupWindow extends PopupWindow{
 	}
 	
 	public void setHint(String hint) {
-		if (TextUtils.isEmpty(mHintText) || !mHintText.equals(hint)) {
-			// 只有与先前提示不一致时，才设置到textview
+
 			mHintTextView.setText(hint);
 			mHintText = hint;
-		}
+
 	}
 	
 }

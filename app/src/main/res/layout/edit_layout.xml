@@ -7,11 +7,11 @@
     <EditText
         android:id="@+id/dropview_edit"
         android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_weight="0.84"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:paddingLeft="5dp"
-        android:background="@drawable/layout_backgroud"
+        android:background="#e5e5e5"
         android:height="35dp" />
     
     <ImageView

@@ -2,24 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_mix_verify"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context="com.liuyuan.nyy.MixVerify">
     <!-- 相机预览 -->
     <SurfaceView
         android:id="@+id/sfv_preview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <!-- 标题栏 -->
     <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/surface_title"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/small_title_height"
-            android:background="@drawable/layout_backgroud">
+            android:layout_height="wrap_content"
+            android:background="@color/content_color">
 
             <ImageButton
                 android:id="@+id/btn_flash_switch"
@@ -27,17 +27,17 @@
                 android:layout_height="@dimen/title_button_size"
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/layout_backgroud"
                 android:scaleType="centerInside"
-                android:src="@drawable/flash_open" />
+                android:background="@color/transparent"
+                android:src="@drawable/ic_flash_on" />
 
             <TextView
-                android:id="@+id/txt_title"
+                android:id="@+id/txt_group_name"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/title_image_height"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:text="@string/login_txt_title"
+                android:text="实验室"
                 android:textColor="@color/white"
                 android:textSize="@dimen/title_text_size" />
 
@@ -47,9 +47,9 @@
                 android:layout_height="@dimen/title_button_size"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@drawable/layout_backgroud"
                 android:scaleType="centerInside"
-                android:src="@drawable/camera" />
+                android:background="@color/transparent"
+                android:src="@drawable/ic_camera_switch" />
 
         </RelativeLayout>
 
@@ -59,7 +59,8 @@
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="visible"
+            android:weightSum="7.5">
 
             <View
                 android:layout_width="match_parent"
@@ -83,7 +84,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="10">
 
             <View
                 android:layout_width="match_parent"
@@ -98,21 +100,15 @@
                 android:contextClickable="false"
                 android:orientation="horizontal">
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/btn_record"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="bottom|center_horizontal"
                     android:layout_marginBottom="@dimen/bottom_layout_margin_bottom"
-                    android:background="@drawable/mic_button_selector" />
-
-                <TextView
-                    android:id="@+id/tv_group_id"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center_horizontal"
-                    android:textColor="@color/white"
-                    android:text="组ID" />
+                    android:background="@color/transparent"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_mic" />
 
             </FrameLayout>
 
@@ -123,18 +119,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/surface_title"
-            android:background="#662a323f"
+            android:background="@color/content_color"
             android:gravity="center_horizontal"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txt_hint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/hint_margin_top"
-                android:text="@string/login_operation_hint"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txt_num"
@@ -144,6 +131,7 @@
                 android:layout_marginRight="@dimen/login_pwd_layout_margin"
                 android:gravity="center"
                 android:text="3926 7485"
+                android:textColor="@color/white"
                 android:textSize="@dimen/num_pwd_txt_size" />
 
         </LinearLayout>

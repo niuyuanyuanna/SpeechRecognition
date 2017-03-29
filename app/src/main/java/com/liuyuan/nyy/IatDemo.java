@@ -146,7 +146,6 @@ public class IatDemo extends AppCompatActivity implements View.OnClickListener {
         }
     };
 
-
     /**
      * 听写监听器。
      */

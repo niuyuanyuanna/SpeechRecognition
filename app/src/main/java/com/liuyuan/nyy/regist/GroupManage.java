@@ -1,7 +1,7 @@
 package com.liuyuan.nyy.regist;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,6 +35,7 @@ import com.iflytek.cloud.SpeechError;
 import com.liuyuan.nyy.R;
 import com.liuyuan.nyy.SpeechApp;
 import com.liuyuan.nyy.util.ErrorDesc;
+import com.liuyuan.nyy.util.MyAdapter;
 import com.liuyuan.nyy.util.SaveFuncUtil;
 
 public class GroupManage extends Activity implements OnClickListener {
@@ -91,7 +92,7 @@ public class GroupManage extends Activity implements OnClickListener {
 
         mUserNameText = (TextView) view.findViewById(R.id.txt_username);
         if (!TextUtils.isEmpty(SpeechApp.getHostUser().getUsername()))
-            mUserNameText.setText(SpeechApp.getHostUser().getUsername());
+            mUserNameText.setText(SpeechApp.mAuth_id);
 
         stopProgress();
         // 创建组
@@ -112,9 +113,8 @@ public class GroupManage extends Activity implements OnClickListener {
         list.addHeaderView(view);
         // 去除行与行之间的黑线：
         list.setDivider(null);
-        ArrayList l = SpeechApp.getHostUser().getGroup_list();
         // 添加并且显示
-        adapter = new MyAdapter(this,l);
+        adapter = new MyAdapter(this,SpeechApp.getHostUser().getGroup_list());
         list.setAdapter(adapter);
     }
 
@@ -321,8 +321,8 @@ public class GroupManage extends Activity implements OnClickListener {
                 JSONObject resObj = new JSONObject(result.getResultString());
                 // 保存到用户信息中，用来显示用户加人的组
                 SpeechApp.getHostUser().getGroup_Hashlist()
-                        .put(resObj.getString("group_id")
-                                , resObj.getString("group_name") + "(" + resObj.getString("group_id") + ")");
+                        .put(resObj.getString("group_id"), resObj.getString("group_name")
+                                + "(" + resObj.getString("group_id") + ")");
                 SaveFuncUtil.saveObject(GroupManage.this, SpeechApp.getHostUser(),
                         SpeechApp.getHostUser().getUsername());
 
@@ -425,49 +425,4 @@ public class GroupManage extends Activity implements OnClickListener {
         mToast.show();
     }
 
-    private class MyAdapter extends BaseAdapter {
-
-        private Context context;
-        private LayoutInflater inflater;
-        public ArrayList<String> arr;
-
-        public MyAdapter(Context context, ArrayList<String> array) {
-            super();
-            this.context = context;
-            inflater = LayoutInflater.from(context);
-            arr = array;
-        }
-
-        @Override
-        public int getCount() {
-            if (arr != null)
-                return arr.size();
-            else
-                return 0;
-        }
-
-        @Override
-        public Object getItem(int arg0) {
-            return arg0;
-        }
-
-        @Override
-        public long getItemId(int arg0) {
-            return arg0;
-        }
-
-        public void setArray(ArrayList<String> list) {
-            this.arr = list;
-        }
-
-        @Override
-        public View getView(int position, View view, ViewGroup parent) {
-            if (view == null) {
-                view = inflater.inflate(R.layout.item_group, null);
-            }
-            final TextView edit = (TextView) view.findViewById(R.id.group_item_content);
-            edit.setText(arr.get(arr.size() - position - 1)); // 在重构adapter的时候不至于数据错乱
-            return view;
-        }
-    }
 }

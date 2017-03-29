@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#7843e1</color>
+    <color name="colorPrimaryDark">#13088f</color>
     <color name="colorAccent">#FF4081</color>
 
     <!-- 画面背景色 -->
     <drawable name="layout_backgroud">#5d769494</drawable>
-
+    <!--dropEditText背景色-->
+<color name="dropEditText_background">#48e73ba2</color>
     <!-- 分割线背景色 -->
-    <drawable name="line_background">#96ff4182</drawable>
+    <drawable name="line_background">#ff26a8</drawable>
+    <!--Button背景色-->
+    <color name="btn_background">#22f70f51</color>
 
     <color name="white">#FFFFFF</color>
     <color name="title_text_color">#737373</color>
@@ -17,4 +20,10 @@
     <color name="list_backgroud_color">#a8fd0658</color>
     <color name="title_color">#fd0859</color>
     <color name="content_color">#737373</color>
+    <color name="black">#000000</color>
+
+    <!--imageButton背景透明-->
+    <color name="transparent">#00ffffff</color>
+
+
 </resources>

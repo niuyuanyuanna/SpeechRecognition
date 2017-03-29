@@ -26,6 +26,7 @@ public class TtsDemo extends AppCompatActivity implements View.OnClickListener {
     private static String TAG = TtsDemo.class.getSimpleName();
     private SpeechSynthesizer mTts;
 
+
     // 默认发音人
     private String voicer = "xiaoyan";
 

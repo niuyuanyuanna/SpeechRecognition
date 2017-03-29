@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/NYY.iml" filepath="$PROJECT_DIR$/NYY.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blurlockview/blurlockview.iml" filepath="$PROJECT_DIR$/blurlockview/blurlockview.iml" />
     </modules>
   </component>
 </project>

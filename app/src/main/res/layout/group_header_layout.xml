@@ -24,29 +24,28 @@
             android:textSize="@dimen/title_text_size" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/user_info_layout"
         android:layout_below="@id/rllyt_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="17dp"
             android:layout_height="18dp"
-            app:srcCompat="@android:drawable/btn_star_big_on"	/>
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:id="@+id/image"/>
 
         <TextView
             android:id="@+id/txt_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/image"
             android:layout_marginLeft="5dp"
-            android:layout_gravity="center"
-            android:maxLength="11"
             android:textSize="18sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/group_create_layout"

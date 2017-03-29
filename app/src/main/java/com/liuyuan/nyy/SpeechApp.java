@@ -9,6 +9,11 @@ import com.liuyuan.nyy.entity.User;
 
 public class SpeechApp extends Application {
 	public static String mAuth_id;
+	private static String mPassword = "1234";
+	public static int failTime = 0;
+	private static String group_id = "1955034676";
+	private static String group_name = "实验室";
+
 	private static User mUser;
 	public static final String HIS_FILE_NAME ="HistoryFile";
 	private static GroupHisList mHisList ;
@@ -50,5 +55,27 @@ public class SpeechApp extends Application {
 	public static void setmHisList(GroupHisList mHisList) {
 		SpeechApp.mHisList = mHisList;
 	}
-	
+
+	public static void setmPassword(String password){
+		SpeechApp.mPassword = password;
+	}
+	public static String getmPassword(){
+		return mPassword;
+	}
+
+	public static void setGroup_id(String group_id) {
+		SpeechApp.group_id = group_id;
+	}
+
+	public static String getGroup_id() {
+		return group_id;
+	}
+
+	public static void setGroup_name(String group_name) {
+		SpeechApp.group_name = group_name;
+	}
+
+	public static String getGroup_name() {
+		return group_name;
+	}
 }
